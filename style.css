@@ -1,0 +1,163 @@
+:root {
+  /*Used for Google fonts*/
+  --FILL: 0;
+  --GRAD: 0;
+  --opsz: 48;
+  --wght: 400; /*400, 500, 700*/
+
+  /* Colors*/
+
+  /* Primary*/
+  --marineBlue: hsl(213, 96%, 18%);
+  --purplishBlue: hsl(243, 100%, 62%);
+  --pastelBlue: hsl(228, 100%, 84%);
+  --lightBlue: hsl(206, 94%, 87%);
+  --strawberryRed: hsl(354, 84%, 57%);
+
+  /* Neutral*/
+  --coolGray: hsl(231, 11%, 63%);
+  --lightGray: hsl(229, 24%, 87%);
+  --magnolia: hsl(217, 100%, 97%);
+  --alabaster: hsl(231, 100%, 99%);
+  --white: hsl(0, 0%, 100%);
+
+  /* Fonts */
+  --font-text: "Ubuntu", sans-serif;
+
+  /* ## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-variation-settings: "FILL" var(--FILL), "GRAD" var(--GRAD),
+    "opsz" var(--opsz), "wght" var(--wght);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: var(--font-text);
+  background-color: var(--magnolia);
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*color: */
+  /*line:height: ;*/
+}
+
+input {
+  font-family: inherit;
+}
+
+img {
+  /* width: 100%; */
+  display: block;
+}
+
+h4,
+h2,
+h1,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container {
+  height: 100vh;
+  padding: 18.5% 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 2px 5px 10px #d6d9e6;
+}
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  border-radius: 0;
+}
+
+.sidebar img {
+  min-width: 100%;
+}
+
+.main-content {
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.style-main-content {
+  width: 95%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px #d6d9e6;
+}
+
+.button-container {
+  z-index: 10;
+  height: 200px;
+  background-color: #fff;
+  margin: 0;
+  padding: 1.6rem;
+}
+
+@media (min-width: 600px) {
+  .container {
+    height: 51.5%;
+    max-width: 90%;
+    padding: 1.6rem;
+    background-color: #fff;
+  }
+
+  .main-content {
+    justify-content: flex-start;
+  }
+
+  .sidebar {
+    position: relative;
+    border-radius: 1rem;
+  }
+
+  .style-main-content {
+    box-shadow: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 94rem;
+  }
+}
+
+/* .attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+} */
