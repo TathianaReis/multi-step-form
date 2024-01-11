@@ -57,15 +57,50 @@ body {
   /*line:height: ;*/
 }
 
-input {
-  font-family: inherit;
-}
-
 img {
   /* width: 100%; */
   display: block;
 }
 
+input::placeholder {
+  color: var(--coolGray);
+  font-weight: 400;
+}
+
+input[type="text"]:focus {
+  color: var(--marineBlue);
+  outline: solid 1px var(--marineBlue);
+}
+
+input[type="text"] {
+  padding: 1.3rem;
+  font-family: inherit;
+  font-weight: 700;
+  color: var(--marineBlue);
+  border: solid 1px var(--lightGray);
+  border-radius: 6px;
+  outline-color: var(--marineBlue);
+  outline-width: bold;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--marineBlue);
+  font-weight: 700;
+  line-height: 2.5;
+}
+
+label {
+  color: var(--marineBlue);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+p {
+  color: var(--coolGray);
+  font-size: 1.5rem;
+}
 h4,
 h2,
 h1,
@@ -77,14 +112,10 @@ ul {
 }
 
 .container {
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   padding: 18.5% 0 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 2px 5px 10px #d6d9e6;
 }
 
 .sidebar {
@@ -120,22 +151,44 @@ ul {
 
 .button-container {
   z-index: 10;
-  height: 200px;
+  text-align: right;
   background-color: #fff;
   margin: 0;
-  padding: 1.6rem;
+  padding: 10rem 1.6rem 1.6rem 1.6rem;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+  margin-top: 2rem;
+}
+
+button {
+  padding: 1.3rem 2.1rem;
+  color: #fff;
+  background-color: var(--marineBlue);
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
 }
 
 @media (min-width: 600px) {
   .container {
-    height: 51.5%;
+    height: auto;
     max-width: 90%;
     padding: 1.6rem;
     background-color: #fff;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 2px 5px 10px #d6d9e6;
   }
 
   .main-content {
     justify-content: flex-start;
+    width: 50%;
+    margin: auto;
   }
 
   .sidebar {
@@ -150,7 +203,7 @@ ul {
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 94rem;
+    width: 94rem;
   }
 }
 
