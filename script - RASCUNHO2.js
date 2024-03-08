@@ -165,6 +165,16 @@ const toggleButtons = (curPage) => {
 
 //Highlight selected step and display correspondent form
 const selectStepPlan = (curPage) => {
+  // stepsList.forEach((s, i) => {
+  //   s.querySelector(".step-number").classList.remove("step-active");
+  //   if (curPage === i) {
+  //     stepsList[i].querySelector(".step-number").classList.add("step-active");
+  //   }
+  //   if (i === numberOfItems && curPage > numberOfItems) {
+  //     stepsList[i].querySelector(".step-number").classList.add("step-active");
+  //   }
+  // });
+
   stepsList.forEach((step, index) => {
     const stepNumber = step.querySelector(".step-number");
     stepNumber.classList.toggle(
@@ -182,28 +192,31 @@ const selectStepPlan = (curPage) => {
 const formValidation = (curPage) => {
   if (curPage === 0) {
     let isValid = true;
+
     inputRequiredList.forEach((input) => {
       const label = document.querySelector(`label[for="${input.id}"]`);
-      const errMsg = label.querySelector(".input-err-msg");
 
       if (!input.value) {
-        errMsg.textContent = "This field is required";
+        label.querySelector(".input-err-msg").textContent =
+          "This field is required";
         isValid = false;
       } else {
-        errMsg.textContent = "";
-        isValid = true;
+        label.querySelector(".input-err-msg").textContent = "";
       }
     });
-
     return isValid;
   }
 
   if (curPage === 1) {
-    const isValid = Array.from(selectPlansList).some(
-      (plan) => plan.dataset.selectedPlan === "on"
-    );
+    isValid = false;
 
-    selectPlanError.textContent = isValid ? "" : "Please select a plan!";
+    selectPlansList.forEach((plan) => {
+      if (plan.dataset.selectedPlan === "on") {
+        isValid = true;
+      }
+    });
+
+    if (!isValid) selectPlanError.textContent = "Please select a plan!";
 
     return isValid;
   }

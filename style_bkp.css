@@ -10,7 +10,6 @@
   /* Primary*/
   --marineBlue: hsl(213, 96%, 18%);
   --purplishBlue: hsl(243, 100%, 62%);
-  --purplishBlueHover: hsl(243, 100%, 62% / 10%);
   --pastelBlue: hsl(228, 100%, 84%);
   --lightBlue: hsl(206, 94%, 87%);
   --strawberryRed: hsl(354, 84%, 57%);
@@ -103,14 +102,9 @@ label {
   /* margin-top: 1.5rem; */
 }
 
-.input-err-msg {
-  float: right;
-  color: red;
-}
-
 p {
   color: var(--coolGray);
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 
 h4,
@@ -123,7 +117,7 @@ ul {
   list-style: none;
 }
 
-/* #personal-info {
+#personal-info {
   display: none;
 }
 
@@ -132,28 +126,11 @@ ul {
 }
 
 #add-ons {
-  display: none;
+  display: block;
 }
 
 #summary {
-  display: block;
-} */
-
-.section-item {
   display: none;
-  min-block-size: 40rem;
-}
-
-.form-button {
-  display: none;
-}
-
-.yearly-plan-offer {
-  display: none;
-}
-
-.active {
-  display: block;
 }
 
 .even-columns > * {
@@ -217,10 +194,6 @@ ul {
   background-color: var(--lightBlue);
 }
 
-.form-active {
-  display: block;
-}
-
 .step-title {
   display: none;
 }
@@ -229,11 +202,11 @@ ul {
   z-index: 1;
   /* height: 100%;
   width: 100%; */
-  /* margin: 0; */
-  /* display: flex;
+  margin: 0;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative; */
+  position: relative;
 }
 
 .main-body {
@@ -245,22 +218,12 @@ ul {
   box-shadow: 0 5px 10px #d6d9e6;
 }
 
-.thankyou-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100%;
-  max-width: 48rem;
-}
-
 .main-footer {
   z-index: 10;
   text-align: right;
   background-color: #fff;
   /* margin: 0; */
-  /* padding: 1.5rem 1.6rem 1.6rem 1.6rem; */
+  padding: 1.5rem 1.6rem 1.6rem 1.6rem;
 }
 
 .main-footer {
@@ -282,17 +245,12 @@ ul {
   border: solid 1px var(--coolGray);
   border-radius: 5px;
   padding: 1.5rem;
-  /* min-width: 135px; */
+  min-width: 135px;
   cursor: pointer;
 }
 
 .plans:hover {
   border: solid 1px var(--purplishBlue);
-}
-
-.plan-selected {
-  border: solid 1px var(--purplishBlue);
-  background: var(--alabaster);
 }
 
 .plans label {
@@ -355,12 +313,6 @@ input[type="checkbox"]::before {
   margin: 0 2rem 2rem 0; */
 }
 
-.err-select-plan p {
-  color: #ed3548;
-  text-align: center;
-  padding-top: 2rem;
-}
-
 .flex-columns {
   display: flex;
   gap: 1.5rem;
@@ -399,15 +351,7 @@ input[type="checkbox"]::before {
   position: relative;
 }
 
-.switch input {
-  appearance: none;
-}
-
-.switch:has(input:checked)::after {
-  transform: translateX(155%) translateY(-50%);
-}
-
-.switch::after {
+.switch::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -469,23 +413,14 @@ form {
   font-size: 1.6rem;
 }
 
-.back-button {
+.button-back {
   background-color: #fff;
   color: var(--coolGray);
 }
 
-.next-button {
+.button-next {
   color: #fff;
   background-color: var(--marineBlue);
-}
-
-.confirm-button {
-  color: #fff;
-  background-color: var(--purplishBlue);
-}
-
-.confirm-button:hover {
-  background-color: rgb(71, 61, 255, 0.9);
 }
 
 .summary-body {
@@ -494,14 +429,14 @@ form {
   border-radius: 2px;
 }
 
-.summary-plan {
+.selected-plan {
   display: flex;
   justify-content: space-between;
   padding-bottom: 2rem;
   border-bottom: solid 1px var(--coolGray);
 }
 
-.summary-add-ons .text-wrapper {
+.selected-add-ons span {
   display: flex;
   justify-content: space-between;
   padding-top: 2rem;
@@ -513,7 +448,7 @@ form {
   padding: 2rem;
 }
 
-.summary-plan a {
+.selected-plan a {
   font-size: 1.4rem;
   color: var(--coolGray);
 }
@@ -555,19 +490,10 @@ form {
 
   .main-body {
     box-shadow: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: center;
-    height: 100%;
-    padding-bottom: 0;
   }
 
   .main-footer {
     position: revert;
-    padding-inline: 0;
-
-    /* grid-column: 2 / span 2; */
   }
 
   .sidebar {
@@ -583,7 +509,6 @@ form {
   .sidebar ul li {
     display: flex;
     gap: 1.5rem;
-    cursor: pointer;
   }
 
   .step-title {
@@ -602,13 +527,7 @@ form {
   }
 
   .grid-columns {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 700px) {
-  .section-item {
-    min-inline-size: 42rem;
+    grid-template-columns: repeat(3, auto);
   }
 }
 
@@ -618,7 +537,7 @@ form {
   }
 
   .content-size {
-    min-inline-size: 45rem;
+    min-inline-size: 50rem;
     margin: auto;
   }
 

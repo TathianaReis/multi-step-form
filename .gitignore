@@ -4,6 +4,10 @@
 #####################################################
 *.sketch
 *.fig
+*.doc
+*RASCULHO
+*bkp
+
 
 # Avoid accidental XD upload if you convert the design file
 ###############################################
