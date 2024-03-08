@@ -1,0 +1,76 @@
+const stepsList = document.querySelectorAll("[data-step-section]");
+const stepSectionList = document.querySelectorAll(".section-item");
+const backButton = document.querySelector(".back-button");
+const nextButton = document.querySelector(".next-button");
+const confirmButton = document.querySelector(".confirm-button");
+const numberOfItems = stepsList.length - 1;
+let currentPage = 0;
+
+stepsList.forEach((stepItem, i) => {
+  stepItem.addEventListener("click", function (e) {
+    const sectionId = this.dataset.stepSection;
+    const sectionActive = document.getElementById(sectionId);
+
+    stepsList.forEach((s, i) => {
+      s.querySelector(".step-number").classList.remove("step-active");
+    });
+
+    stepSectionList.forEach((s, i) => {
+      s?.classList.remove("active");
+    });
+
+    sectionActive.classList.add("active");
+    this.querySelector(".step-number").classList.add("step-active");
+
+    currentPage = i;
+    toggleButtons(currentPage);
+  });
+});
+
+nextButton.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  currentPage++;
+  toggleButtons(currentPage);
+
+  stepsList.forEach((s, i) => {
+    s.querySelector(".step-number").classList.remove("step-active");
+    if (currentPage === i) {
+      stepsList[i].querySelector(".step-number").classList.add("step-active");
+    }
+  });
+
+  stepSectionList.forEach((s, i) => {
+    s?.classList.remove("active");
+    if (currentPage === i) {
+      stepSectionList[i].classList.add("active");
+    }
+  });
+});
+
+backButton.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  currentPage--;
+  toggleButtons(currentPage);
+
+  stepsList.forEach((s, i) => {
+    s.querySelector(".step-number").classList.remove("step-active");
+    if (currentPage === i) {
+      stepsList[i].querySelector(".step-number").classList.add("step-active");
+    }
+  });
+
+  stepSectionList.forEach((s, i) => {
+    s?.classList.remove("active");
+    if (currentPage === i) {
+      stepSectionList[i].classList.add("active");
+    }
+  });
+});
+
+const toggleButtons = (curPage) => {
+  backButton.classList.toggle("active", curPage > 0);
+  nextButton.classList.toggle("active", curPage < numberOfItems);
+  confirmButton.classList.toggle("active", curPage === numberOfItems);
+};
